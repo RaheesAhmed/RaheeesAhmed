@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rahees Ahmed - AI Engineer & Full Stack Developer Portfolio
 
-## Getting Started
+## 🚀 Overview
 
-First, run the development server:
+Welcome to my professional portfolio repository! I'm Rahees Ahmed, an AI Engineer and Full Stack Developer with 6+ years of experience specializing in AI-driven technologies. This portfolio showcases my skills, projects, and expertise in building intelligent systems and applications.
+
+🔗 **Live Portfolio:** [https://raheesahmed.com](https://raheesahmed.com)
+
+## ✨ Features
+
+- **Modern UI/UX Design**: Built with Next.js 15 and Tailwind CSS 4
+- **Responsive Layout**: Optimized for all device sizes
+- **Interactive Elements**: Engaging animations and transitions
+- **Terminal-Inspired Hero Section**: Tech-focused design reflecting AI engineering background
+- **Project Showcase**: Highlighting key projects with detailed information
+- **Contact Integration**: Easy ways to connect and collaborate
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 15, React, Tailwind CSS 4, Framer Motion
+- **UI Components**: shadcn/ui
+- **Styling**: Custom animations, responsive design
+- **Deployment**: Vercel
+
+## 🎨 Design Elements
+
+- **Color Scheme**: Dark Gray (#1F1F1F), Tech Blue (#2D9CDB), Cyber Lime (#00FFAB), Violet (#9B51E0)
+- **Typography**: Modern, tech-focused fonts
+- **Animations**: Smooth transitions and interactive elements
+- **Terminal-Inspired UI**: Command-line aesthetic for the hero section
+
+## 🚀 Projects Featured
+
+- **Giggle**: Freelance marketplace with lower fees (Next.js 15, Tailwind CSS 4, Supabase, Stripe)
+- **AI Chatbots**: Custom conversational agents for various industries
+- **Full Stack Applications**: Showcasing backend and frontend expertise
+- **And more**: Check out the portfolio for the complete project list!
+
+## 🔧 Getting Started
+
+To run this portfolio locally:
 
 ```bash
+# Clone the repository
+git clone https://github.com/RaheesAhmed/RaheeesAhmed.git
+
+# Navigate to the project directory
+cd RaheeesAhmed
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📞 Contact
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Email**: rahesahmed37@gmail.com
+- **LinkedIn**: [linkedin.com/in/raheesahmed](https://www.linkedin.com/in/raheesahmed/)
+- **GitHub**: [github.com/raheesahmed](https://github.com/raheesahmed)
+- **WhatsApp**: [+923155501381](https://wa.me/923155501381)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Designed and developed with ❤️ by Rahees Ahmed
