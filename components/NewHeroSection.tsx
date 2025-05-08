@@ -9,14 +9,7 @@ import TypingAnimation from './TypingAnimation';
 import ParticleBackground from './ParticleBackground';
 import dynamic from 'next/dynamic';
 
-// Dynamically import components that use browser APIs with no SSR
-// Temporarily commented out until Three.js issues are fixed
-/*
-const NeuralNetworkModel = dynamic(
-  () => import('./NeuralNetworkModel'),
-  { ssr: false, loading: () => <div className="w-full h-full"></div> }
-);
-*/
+
 
 const CodeRain = dynamic(
   () => import('./CodeRain'),
@@ -83,6 +76,7 @@ export default function NewHeroSection() {
     >
       {/* Code Rain Background Effect */}
       <CodeRain className="opacity-30" />
+<ParticleBackground />
 
       {/* Enhanced animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -391,33 +385,7 @@ export default function NewHeroSection() {
       >
 
 
-        {/* Enhanced main heading with 3D effect and improved gradient */}
-        <motion.div
-          className="mb-8"
-          style={{
-            transformStyle: "preserve-3d",
-            transform: `perspective(1000px) rotateX(${mousePosition.y * -5}deg) rotateY(${mousePosition.x * 5}deg)`
-          }}
-          transition={{ type: "spring", stiffness: 100 }}
-        >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight">
-            <div className="overflow-hidden mb-2">
-              <motion.div
-                initial={{ y: 100 }}
-                animate={{ y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-tech-blue via-white to-cyber-lime">
-                  Rahees Ahmed
-                </span>
-              </motion.div>
-            </div>
 
-           
-          </h1>
-        </motion.div>
-
-        {/* Simple Tech Skills Showcase - Matching the screenshot */}
         <motion.div
           className="mb-12 relative"
           initial={{ opacity: 0 }}
@@ -437,113 +405,34 @@ export default function NewHeroSection() {
 
             </motion.div>
 
-            {/* Tech skills grid - First row */}
-            <div className="grid grid-cols-3 gap-4 mb-4">
-              <motion.div
-                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                whileHover={{ y: -5 }}
+            {/* Personal description section - concise, no background */}
+            <motion.div
+              className="p-6 max-w-3xl mx-auto mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+            >
+              <motion.h2
+                className="text-center text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-tech-blue via-cyber-lime to-highlight"
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ duration: 3, repeat: Infinity }}
               >
-                <motion.div
-                  className="flex items-center justify-center mb-3 text-tech-blue"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <FaRobot size={24} />
-                </motion.div>
-                <p className="text-center text-tech-blue text-sm font-medium">AI Engineering</p>
-              </motion.div>
+                AI Engineer & Full Stack Developer
+              </motion.h2>
 
-              <motion.div
-                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9, duration: 0.5 }}
-                whileHover={{ y: -5 }}
-              >
-                <motion.div
-                  className="flex items-center justify-center mb-3 text-cyber-lime"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
-                >
-                  <FaCode size={24} />
-                </motion.div>
-                <p className="text-center text-cyber-lime text-sm font-medium">Full Stack Dev</p>
-              </motion.div>
-
-              <motion.div
-                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+              <motion.p
+                className="text-center text-2xl font-bold text-white"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 1.0, duration: 0.5 }}
-                whileHover={{ y: -5 }}
+                whileHover={{ scale: 1.05 }}
+                style={{
+                  textShadow: "0 0 10px rgba(0, 255, 171, 0.7), 0 0 20px rgba(45, 156, 219, 0.5)"
+                }}
               >
-                <motion.div
-                  className="flex items-center justify-center mb-3 text-highlight"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
-                >
-                  <FaBrain size={24} />
-                </motion.div>
-                <p className="text-center text-highlight text-sm font-medium">LLM Development</p>
-              </motion.div>
-            </div>
-
-            {/* Tech skills grid - Second row */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              <motion.div
-                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1, duration: 0.5 }}
-                whileHover={{ y: -5 }}
-              >
-                <motion.div
-                  className="flex items-center justify-center mb-3 text-tech-blue"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
-                >
-                  <FaServer size={24} />
-                </motion.div>
-                <p className="text-center text-tech-blue text-sm font-medium">Backend Systems</p>
-              </motion.div>
-
-              <motion.div
-                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.5 }}
-                whileHover={{ y: -5 }}
-              >
-                <motion.div
-                  className="flex items-center justify-center mb-3 text-cyber-lime"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
-                >
-                  <FaDatabase size={24} />
-                </motion.div>
-                <p className="text-center text-cyber-lime text-sm font-medium">Data Engineering</p>
-              </motion.div>
-
-              <motion.div
-                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.3, duration: 0.5 }}
-                whileHover={{ y: -5 }}
-              >
-                <motion.div
-                  className="flex items-center justify-center mb-3 text-highlight"
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 1.0 }}
-                >
-                  <FaCode size={24} />
-                </motion.div>
-                <p className="text-center text-highlight text-sm font-medium">API Development</p>
-              </motion.div>
-            </div>
+                Building intelligent systems & scalable applications
+              </motion.p>
+            </motion.div>
 
             {/* Animated highlight line */}
             <motion.div

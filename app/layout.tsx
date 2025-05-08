@@ -28,7 +28,6 @@ export const metadata: Metadata = {
   keywords: "AI Engineer, Full Stack Developer, Chatbot Specialist, React, Next.js, Node.js, Python, OpenAI, LangChain, RAG",
   icons: {
     icon: [
-      { url: '/favicon.ico' },
       { url: '/favicon.svg', type: 'image/svg+xml' }
     ],
     apple: { url: '/apple-icon.png', type: 'image/png' },
