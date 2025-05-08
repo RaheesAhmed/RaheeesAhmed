@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-heading: var(--font-rajdhani);
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-highlight: var(--highlight);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+}
+
+:root {
+  /* Brand Colors */
+  --radius: 0.625rem;
+  --background: #1F1F1F; /* Dark Gray */
+  --foreground: #FFFFFF; /* White */
+  --card: #1F1F1F;
+  --card-foreground: #FFFFFF;
+  --popover: #1F1F1F;
+  --popover-foreground: #FFFFFF;
+  --primary: #2D9CDB; /* Tech Blue */
+  --primary-foreground: #FFFFFF;
+  --secondary: #00FFAB; /* Cyber Lime */
+  --secondary-foreground: #1F1F1F;
+  --muted: #333333;
+  --muted-foreground: #CCCCCC;
+  --accent: #00FFAB; /* Cyber Lime */
+  --accent-foreground: #1F1F1F;
+  --destructive: #FF4D4D;
+  --border: #333333;
+  --input: #333333;
+  --ring: #2D9CDB; /* Tech Blue */
+  --highlight: #9B51E0; /* Violet highlight */
+  --sidebar: #1F1F1F;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #2D9CDB;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #00FFAB;
+  --sidebar-accent-foreground: #1F1F1F;
+  --sidebar-border: #333333;
+  --sidebar-ring: #2D9CDB;
+}
+
+.dark {
+  /* Dark mode uses the same colors since our theme is already dark-focused */
+  --background: #1F1F1F; /* Dark Gray */
+  --foreground: #FFFFFF; /* White */
+  --card: #252525;
+  --card-foreground: #FFFFFF;
+  --popover: #252525;
+  --popover-foreground: #FFFFFF;
+  --primary: #2D9CDB; /* Tech Blue */
+  --primary-foreground: #FFFFFF;
+  --secondary: #00FFAB; /* Cyber Lime */
+  --secondary-foreground: #1F1F1F;
+  --muted: #333333;
+  --muted-foreground: #CCCCCC;
+  --accent: #00FFAB; /* Cyber Lime */
+  --accent-foreground: #1F1F1F;
+  --destructive: #FF4D4D;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #2D9CDB; /* Tech Blue */
+  --highlight: #9B51E0; /* Violet highlight */
+  --sidebar: #252525;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #2D9CDB;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #00FFAB;
+  --sidebar-accent-foreground: #1F1F1F;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #2D9CDB;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer utilities {
+  .text-highlight {
+    @apply text-[#9B51E0];
+  }
+
+  .text-tech-blue {
+    @apply text-[#2D9CDB];
+  }
+
+  .text-cyber-lime {
+    @apply text-[#00FFAB];
+  }
+
+  .bg-tech-blue {
+    @apply bg-[#2D9CDB];
+  }
+
+  .bg-cyber-lime {
+    @apply bg-[#00FFAB];
+  }
+
+  .border-tech-blue {
+    @apply border-[#2D9CDB];
+  }
+
+  .border-cyber-lime {
+    @apply border-[#00FFAB];
+  }
+
+  .bg-300\% {
+    background-size: 300% 100%;
+  }
+
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+
+  .tech-card {
+    @apply bg-gradient-to-br from-[#1F1F1F] to-[#252525] rounded-xl border border-[#333] shadow-lg transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .tech-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(45, 156, 219, 0.1), 0 4px 6px -4px rgba(45, 156, 219, 0.1);
+  }
+
+  .glow-effect {
+    @apply relative overflow-hidden;
+  }
+
+  .glow-effect::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(to right, rgba(45, 156, 219, 0.2), rgba(0, 255, 171, 0.2));
+  }
+
+  .glow-effect:hover::before {
+    @apply opacity-100;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, #2D9CDB, #00FFAB, #9B51E0);
+  }
+
+  .premium-glass {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-xl;
+    box-shadow: 0 10px 30px -5px rgba(45, 156, 219, 0.1);
+  }
+
+  .tech-glow {
+    box-shadow: 0 0 15px rgba(45, 156, 219, 0.3);
+  }
+
+  .cyber-glow {
+    box-shadow: 0 0 15px rgba(0, 255, 171, 0.3);
+  }
+
+  .highlight-glow {
+    box-shadow: 0 0 15px rgba(155, 81, 224, 0.3);
+  }
+
+  .animated-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+  }
+
+  .animated-border:hover::after {
+    left: 100%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-100%) skewX(12deg);
+  }
+  to {
+    transform: translateX(150%) skewX(12deg);
+  }
+}
+
+.animate-shine {
+  animation: shine 2s ease-in-out infinite;
+}
+
+
