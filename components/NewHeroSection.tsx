@@ -4,7 +4,26 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { FaCode, FaRobot, FaServer, FaDatabase, FaBrain } from "react-icons/fa";
 import TypingAnimation from './TypingAnimation';
+import ParticleBackground from './ParticleBackground';
+import dynamic from 'next/dynamic';
+
+// Dynamically import components that use browser APIs with no SSR
+// Temporarily commented out until Three.js issues are fixed
+/*
+const NeuralNetworkModel = dynamic(
+  () => import('./NeuralNetworkModel'),
+  { ssr: false, loading: () => <div className="w-full h-full"></div> }
+);
+*/
+
+const CodeRain = dynamic(
+  () => import('./CodeRain'),
+  { ssr: false, loading: () => <div className="w-full h-full"></div> }
+);
+
+// Terminal effect removed in favor of tech skills showcase
 
 export default function NewHeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -62,10 +81,13 @@ export default function NewHeroSection() {
         background: '#1F1F1F'
       }}
     >
+      {/* Code Rain Background Effect */}
+      <CodeRain className="opacity-30" />
+
       {/* Enhanced animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Animated grid lines with glow effect */}
-        <div className="absolute inset-0 opacity-15">
+        <div className="absolute inset-0 opacity-10">
           <motion.div
             className="h-full w-full"
             style={{
@@ -299,9 +321,67 @@ export default function NewHeroSection() {
         </div>
       </motion.div>
 
+      {/* Neural Network Model Placeholder */}
+      <motion.div
+        className="absolute right-[-100px] top-[-50px] w-[700px] h-[700px] opacity-0 hidden lg:block"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.85 }}
+        transition={{ duration: 2, delay: 1.5 }}
+        style={{
+          zIndex: 5,
+          pointerEvents: 'none',
+        }}
+      >
+        <div className="w-full h-full relative">
+          {/* Static neural network visualization */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-tech-blue/30 opacity-30"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-cyber-lime/30 opacity-30"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-highlight/30 opacity-30"></div>
+
+          {/* Nodes */}
+          <motion.div
+            className="absolute top-[30%] left-[20%] w-6 h-6 rounded-full bg-tech-blue/80 shadow-lg shadow-tech-blue/50"
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          ></motion.div>
+          <motion.div
+            className="absolute top-[50%] left-[30%] w-5 h-5 rounded-full bg-cyber-lime/80 shadow-lg shadow-cyber-lime/50"
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          ></motion.div>
+          <motion.div
+            className="absolute top-[70%] left-[20%] w-6 h-6 rounded-full bg-tech-blue/80 shadow-lg shadow-tech-blue/50"
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+          ></motion.div>
+
+          <motion.div
+            className="absolute top-[40%] left-[50%] w-5 h-5 rounded-full bg-highlight/80 shadow-lg shadow-highlight/50"
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
+          ></motion.div>
+          <motion.div
+            className="absolute top-[60%] left-[50%] w-5 h-5 rounded-full bg-highlight/80 shadow-lg shadow-highlight/50"
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+          ></motion.div>
+
+          <motion.div
+            className="absolute top-[30%] left-[80%] w-6 h-6 rounded-full bg-cyber-lime/80 shadow-lg shadow-cyber-lime/50"
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
+          ></motion.div>
+          <motion.div
+            className="absolute top-[70%] left-[80%] w-6 h-6 rounded-full bg-cyber-lime/80 shadow-lg shadow-cyber-lime/50"
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
+          ></motion.div>
+        </div>
+      </motion.div>
+
       {/* Enhanced main content with 3D-like effect */}
       <motion.div
-        className="relative z-10 max-w-6xl mx-auto px-4 text-center -mt-8 md:-mt-12"
+        className="relative z-20 max-w-6xl mx-auto px-4 text-center -mt-8 md:-mt-12"
         style={{
           opacity,
           perspective: "1000px"
@@ -321,42 +401,180 @@ export default function NewHeroSection() {
           transition={{ type: "spring", stiffness: 100 }}
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight">
-
-            <div className="overflow-hidden">
+            <div className="overflow-hidden mb-2">
               <motion.div
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                className="text-3xl md:text-4xl lg:text-5xl mt-4 text-white/90 font-semibold"
+                transition={{ delay: 0.2, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-white">
-                  AI Engineer & Full Stack Developer
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-tech-blue via-white to-cyber-lime">
+                  Rahees Ahmed
                 </span>
               </motion.div>
             </div>
+
+           
           </h1>
         </motion.div>
 
-        {/* Enhanced animated typing text with backdrop */}
+        {/* Simple Tech Skills Showcase - Matching the screenshot */}
         <motion.div
-          className="mb-12 h-16 relative"
+          className="mb-12 relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/0 via-[#121212]/50 to-[#121212]/0 blur-sm"></div>
-          <TypingAnimation
-            text={[
-              "Building intelligent systems that transform businesses",
-              "Creating custom AI agents for real-world problems",
-              "Developing next-generation conversational experiences"
-            ]}
-            className="text-xl md:text-2xl text-gray-300 font-light relative z-10"
-            typingSpeed={40}
-          />
+
+          <div className="w-full max-w-3xl mx-auto relative z-10 py-6 px-4">
+            {/* Simple title */}
+            <motion.div
+              className="text-2xl text-white font-medium text-center mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+
+            </motion.div>
+
+            {/* Tech skills grid - First row */}
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              <motion.div
+                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="flex items-center justify-center mb-3 text-tech-blue"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <FaRobot size={24} />
+                </motion.div>
+                <p className="text-center text-tech-blue text-sm font-medium">AI Engineering</p>
+              </motion.div>
+
+              <motion.div
+                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="flex items-center justify-center mb-3 text-cyber-lime"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
+                >
+                  <FaCode size={24} />
+                </motion.div>
+                <p className="text-center text-cyber-lime text-sm font-medium">Full Stack Dev</p>
+              </motion.div>
+
+              <motion.div
+                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="flex items-center justify-center mb-3 text-highlight"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
+                >
+                  <FaBrain size={24} />
+                </motion.div>
+                <p className="text-center text-highlight text-sm font-medium">LLM Development</p>
+              </motion.div>
+            </div>
+
+            {/* Tech skills grid - Second row */}
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              <motion.div
+                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.1, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="flex items-center justify-center mb-3 text-tech-blue"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
+                >
+                  <FaServer size={24} />
+                </motion.div>
+                <p className="text-center text-tech-blue text-sm font-medium">Backend Systems</p>
+              </motion.div>
+
+              <motion.div
+                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="flex items-center justify-center mb-3 text-cyber-lime"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
+                >
+                  <FaDatabase size={24} />
+                </motion.div>
+                <p className="text-center text-cyber-lime text-sm font-medium">Data Engineering</p>
+              </motion.div>
+
+              <motion.div
+                className="bg-[#1A1A1A]/60 backdrop-blur-sm p-4 rounded-lg border border-[#333]/30 transition-all flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.3, duration: 0.5 }}
+                whileHover={{ y: -5 }}
+              >
+                <motion.div
+                  className="flex items-center justify-center mb-3 text-highlight"
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 1.0 }}
+                >
+                  <FaCode size={24} />
+                </motion.div>
+                <p className="text-center text-highlight text-sm font-medium">API Development</p>
+              </motion.div>
+            </div>
+
+            {/* Animated highlight line */}
+            <motion.div
+              className="w-0 h-1 bg-gradient-to-r from-tech-blue via-cyber-lime to-highlight rounded-full mx-auto mb-6"
+              animate={{ width: "100%" }}
+              transition={{ delay: 1.5, duration: 1 }}
+            />
+
+            {/* Typing animation below skills */}
+            <motion.div
+              className="text-center h-8 mt-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2, duration: 0.5 }}
+            >
+              <TypingAnimation
+                text={[
+                  "Building intelligent systems that transform businesses",
+                  "Creating custom AI agents for real-world problems",
+                  "Developing next-generation conversational experiences"
+                ]}
+                className="text-base text-gray-300 font-light"
+                typingSpeed={40}
+                eraseDelay={3000}
+                eraseSpeed={20}
+              />
+            </motion.div>
+          </div>
         </motion.div>
 
-        {/* Enhanced CTA buttons with 3D effect */}
+        {/* CTA buttons matching screenshot */}
         <motion.div
           className="flex flex-wrap gap-8 justify-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -364,13 +582,12 @@ export default function NewHeroSection() {
           transition={{ delay: 0.8, duration: 0.5 }}
         >
           <motion.div
-            whileHover={{ scale: 1.05, y: -5 }}
+            whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.98 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-tech-blue/50 rounded-xl blur-xl opacity-30 group-hover:opacity-70 transition-opacity"></div>
             <Button
-              className="bg-gradient-to-r from-tech-blue to-tech-blue/80 hover:from-tech-blue/90 hover:to-tech-blue/70 text-white px-10 py-7 text-lg font-medium rounded-xl shadow-xl shadow-tech-blue/30 transition-all relative z-10 border border-tech-blue/30"
+              className="bg-[#1A1A1A]/80 hover:bg-[#1A1A1A] text-white px-8 py-6 text-base font-medium rounded-full shadow-lg transition-all relative z-10 border border-[#333]/50"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <span className="mr-2">✨</span> Explore My Work
@@ -378,14 +595,13 @@ export default function NewHeroSection() {
           </motion.div>
 
           <motion.div
-            whileHover={{ scale: 1.05, y: -5 }}
+            whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.98 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-cyber-lime/30 rounded-xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
             <Button
               variant="outline"
-              className="border-2 border-cyber-lime text-cyber-lime hover:bg-cyber-lime/10 px-10 py-7 text-lg font-medium rounded-xl shadow-xl shadow-cyber-lime/20 transition-all backdrop-blur-sm relative z-10"
+              className="border border-cyber-lime text-cyber-lime hover:text-cyber-lime hover:bg-cyber-lime/10 px-8 py-6 text-base font-medium rounded-full shadow-lg transition-all backdrop-blur-sm relative z-10"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <span className="mr-2">👋</span> Let's Connect

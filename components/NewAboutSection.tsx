@@ -93,28 +93,39 @@ export default function NewAboutSection() {
           }}></div>
         </div>
 
-        {/* Animated particles */}
+        {/* Animated particles - Using static values instead of random to avoid hydration issues */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {[
+            { top: '10%', left: '20%', color: 'rgba(45, 156, 219, 0.4)', shadow: '0 0 10px rgba(45, 156, 219, 0.6)', size: 5, yMove: -80, xMove: 20, duration: 15 },
+            { top: '30%', left: '70%', color: 'rgba(0, 255, 171, 0.4)', shadow: '0 0 10px rgba(0, 255, 171, 0.6)', size: 4, yMove: -60, xMove: -15, duration: 18 },
+            { top: '50%', left: '30%', color: 'rgba(155, 81, 224, 0.4)', shadow: '0 0 10px rgba(155, 81, 224, 0.6)', size: 6, yMove: -90, xMove: 10, duration: 20 },
+            { top: '70%', left: '80%', color: 'rgba(45, 156, 219, 0.4)', shadow: '0 0 10px rgba(45, 156, 219, 0.6)', size: 3, yMove: -70, xMove: -20, duration: 12 },
+            { top: '90%', left: '40%', color: 'rgba(0, 255, 171, 0.4)', shadow: '0 0 10px rgba(0, 255, 171, 0.6)', size: 5, yMove: -100, xMove: 5, duration: 16 },
+            { top: '20%', left: '90%', color: 'rgba(155, 81, 224, 0.4)', shadow: '0 0 10px rgba(155, 81, 224, 0.6)', size: 4, yMove: -65, xMove: -10, duration: 14 },
+            { top: '40%', left: '10%', color: 'rgba(45, 156, 219, 0.4)', shadow: '0 0 10px rgba(45, 156, 219, 0.6)', size: 6, yMove: -85, xMove: 15, duration: 19 },
+            { top: '60%', left: '60%', color: 'rgba(0, 255, 171, 0.4)', shadow: '0 0 10px rgba(0, 255, 171, 0.6)', size: 3, yMove: -75, xMove: -5, duration: 13 },
+            { top: '80%', left: '20%', color: 'rgba(155, 81, 224, 0.4)', shadow: '0 0 10px rgba(155, 81, 224, 0.6)', size: 5, yMove: -95, xMove: 10, duration: 17 },
+            { top: '15%', left: '50%', color: 'rgba(45, 156, 219, 0.4)', shadow: '0 0 10px rgba(45, 156, 219, 0.6)', size: 4, yMove: -55, xMove: -15, duration: 15 }
+          ].map((particle, i) => (
             <motion.div
               key={i}
               className="absolute rounded-full"
               style={{
-                width: Math.random() * 6 + 2,
-                height: Math.random() * 6 + 2,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                background: i % 3 === 0 ? 'rgba(45, 156, 219, 0.4)' : i % 3 === 1 ? 'rgba(0, 255, 171, 0.4)' : 'rgba(155, 81, 224, 0.4)',
-                boxShadow: i % 3 === 0 ? '0 0 10px rgba(45, 156, 219, 0.6)' : i % 3 === 1 ? '0 0 10px rgba(0, 255, 171, 0.6)' : '0 0 10px rgba(155, 81, 224, 0.6)'
+                width: particle.size,
+                height: particle.size,
+                top: particle.top,
+                left: particle.left,
+                background: particle.color,
+                boxShadow: particle.shadow
               }}
               animate={{
-                y: [0, Math.random() * -100 - 50],
-                x: [0, (Math.random() - 0.5) * 50],
+                y: [0, particle.yMove],
+                x: [0, particle.xMove],
                 opacity: [0.7, 0],
-                scale: [1, Math.random() * 0.5 + 0.5]
+                scale: [1, 0.7]
               }}
               transition={{
-                duration: Math.random() * 10 + 10,
+                duration: particle.duration,
                 repeat: Infinity,
                 ease: "linear"
               }}

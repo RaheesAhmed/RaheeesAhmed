@@ -1,20 +1,19 @@
 'use client';
 
 // Import custom components
-import AiChatbot from "@/components/AiChatbot";
+
 import NewNavigation from "@/components/NewNavigation";
 import NewHeroSection from "@/components/NewHeroSection";
 import NewAboutSection from "@/components/NewAboutSection";
 import NewExpertiseSection from "@/components/NewExpertiseSection";
 import NewProjectsSection from "@/components/NewProjectsSection";
-import ContactSection from "@/components/ContactSection";
+import NewContactSection from "@/components/NewContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* AI Chatbot */}
-      <AiChatbot />
+
 
       {/* Navigation */}
       <NewNavigation />
@@ -32,7 +31,7 @@ export default function Home() {
       <NewProjectsSection />
 
       {/* Contact Section */}
-      <ContactSection />
+      <NewContactSection />
 
       {/* Footer */}
       <Footer />
