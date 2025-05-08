@@ -4,7 +4,7 @@
 
 Welcome to my professional portfolio repository! I'm Rahees Ahmed, an AI Engineer and Full Stack Developer with 6+ years of experience specializing in AI-driven technologies. This portfolio showcases my skills, projects, and expertise in building intelligent systems and applications.
 
-🔗 **Live Portfolio:** [https://raheesahmed.com](https://raheesahmed.com)
+🔗 **Live Portfolio:** [https://raheees-ahmed.vercel.app/](https://raheees-ahmed.vercel.app/)
 
 ## ✨ Features
 
