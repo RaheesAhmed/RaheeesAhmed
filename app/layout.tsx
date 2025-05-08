@@ -26,6 +26,19 @@ export const metadata: Metadata = {
   title: "Rahees Ahmed | AI Engineer & Full Stack Developer",
   description: "AI Engineer, Full Stack Developer, and Chatbot Specialist with expertise in building custom AI solutions and scalable web applications.",
   keywords: "AI Engineer, Full Stack Developer, Chatbot Specialist, React, Next.js, Node.js, Python, OpenAI, LangChain, RAG",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ],
+    apple: { url: '/apple-icon.png', type: 'image/png' },
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/apple-touch-icon-precomposed.png',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
